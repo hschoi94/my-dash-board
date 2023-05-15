@@ -1,0 +1,62 @@
+version: '3.8'
+services:
+  appseed-app:
+    container_name: appseed_app
+    restart: always
+
+    environment:
+        - USER_UID=$USER
+        - USER_GID=$GID
+        - MDASH__database__DB_TYPE=mysql
+        - MDASH__database__HOST=db
+        - MDASH__database__NAME=mdash
+        - MDASH__database__USER=mdash
+        - MDASH__database__PASSWD=mdash
+    build: .
+    networks:
+      - db_network
+      - web_network
+
+    volumes:
+      - ./Webdav/data:/var/www/html/webdav
+  nginx:
+    container_name: nginx
+    restart: always
+    image: "nginx:latest"
+    ports:
+      - "5085:5085"
+    volumes:
+      - ./nginx:/etc/nginx/conf.d
+    networks:
+      - web_network
+    depends_on: 
+      - appseed-app
+
+  db:
+    image: mysql
+    restart: always
+    environment:
+      - USER_UID=1000
+      - USER_GID=1000
+      - MYSQL_ROOT_PASSWORD=root
+      - MYSQL_USER=mdash
+      - MYSQL_PASSWORD=mdash
+      - MYSQL_DATABASE=mdash
+      - LANG='C.UTF-8'
+    networks:
+      - db_network
+    ports:
+      - "3333:3306"
+    volumes:
+      - ./MYSQL/data:/var/lib/mysql
+      - ./MYSQL/setting:/etc/mysql
+    stdin_open: true
+
+networks:
+  db_network:
+    driver: bridge
+  web_network:
+    driver: bridge
+
+
+ 
