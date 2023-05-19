@@ -1,3 +1,5 @@
+USER_UID=$USER
+
 # True for development, False for production
 DEBUG=False
 VER=v1.0
@@ -11,11 +13,3 @@ FLASK_ENV=production
 # Used for CDN (in production)
 # No Slash at the end
 ASSETS_ROOT=/static/assets
-
-# If DB credentials (if NOT provided, or wrong values SQLite is used) 
-DB_ENGINE=$MDASH__database__DB_TYPE
-DB_HOST=$MDASH__database__HOST
-DB_NAME=$MDASH__database__NAME
-DB_USERNAME=$MDASH__database__USER
-DB_PASS=$MDASH__database__PASSWD
-DB_PORT=3306

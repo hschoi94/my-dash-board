@@ -1,0 +1,8 @@
+DB_ENGINE=mysql
+DB_HOST=db
+DB_NAME=mdash
+DB_USERNAME=mdash
+DB_PASS=mdash
+DB_PORT=3306
+DB_RT_PW=root
+GID=20

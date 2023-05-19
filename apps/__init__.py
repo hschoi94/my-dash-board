@@ -48,7 +48,7 @@ def configure_database(app):
         db.session.remove()
 
 from apps.authentication.oauth import github_blueprint
-
+from flask.ext.mysql import MySQL
 def create_app(config):
     app = Flask(__name__)
     app.config.from_object(config)

@@ -1,24 +1,21 @@
 version: '3.8'
 services:
+
   appseed-app:
+    image: "nginx:latest"
     container_name: appseed_app
     restart: always
-
-    environment:
-        - USER_UID=$USER
-        - USER_GID=$GID
-        - MDASH__database__DB_TYPE=mysql
-        - MDASH__database__HOST=db
-        - MDASH__database__NAME=mdash
-        - MDASH__database__USER=mdash
-        - MDASH__database__PASSWD=mdash
-    build: .
+    env_file:
+      - ./docker/app/env
+      - ./docker/env
+    build: ./docker/app
     networks:
       - db_network
       - web_network
-
     volumes:
-      - ./Webdav/data:/var/www/html/webdav
+      - ./IDASH/Webdav/data:/var/www/html/webdav
+    stdin_open: true # interaction option
+
   nginx:
     container_name: nginx
     restart: always
@@ -31,26 +28,23 @@ services:
       - web_network
     depends_on: 
       - appseed-app
+    stdin_open: true # interaction option
 
   db:
-    image: mysql
-    restart: always
-    environment:
-      - USER_UID=1000
-      - USER_GID=1000
-      - MYSQL_ROOT_PASSWORD=root
-      - MYSQL_USER=mdash
-      - MYSQL_PASSWORD=mdash
-      - MYSQL_DATABASE=mdash
-      - LANG='C.UTF-8'
+    image: mariadb:latest
+    container_name: IDASH-mariadb
+    env_file:
+      - ./docker/app/env
+      - ./docker/env
     networks:
       - db_network
-    ports:
-      - "3333:3306"
+    restart: always
     volumes:
-      - ./MYSQL/data:/var/lib/mysql
-      - ./MYSQL/setting:/etc/mysql
-    stdin_open: true
+      - ./IDASH/MariaDB/data:/var/lib/mysql
+      - ./IDASH/MariaDB/setting:/etc/mysql/conf.d
+    ports:
+      - "3306:3306"
+    stdin_open: true # interaction option
 
 networks:
   db_network:
