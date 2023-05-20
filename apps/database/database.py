@@ -3,11 +3,11 @@ import pandas as pd
 import datetime
 
 class DataBaseInit:
-    def __init__(self,host,user,pw):
+    def __init__(self,host,user,pw,port=3306):
         self.conn = pymysql.connect(host=host,
                                     user=user,
                                     password=pw,
-                                    port=3306,
+                                    port=port,
                                     charset='utf8mb4',
                                     cursorclass=pymysql.cursors.DictCursor) 
         self.cursor = self.conn.cursor()

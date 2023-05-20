@@ -1,4 +1,5 @@
-DB_ENGINE=mysql
+DB_ENGINE=mariadb
+DB_ROOT_PASS=root
 DB_HOST=db
 DB_NAME=mdash
 DB_USERNAME=mdash
@@ -6,3 +7,4 @@ DB_PASS=mdash
 DB_PORT=3306
 DB_RT_PW=root
 GID=20
+VER=1.0

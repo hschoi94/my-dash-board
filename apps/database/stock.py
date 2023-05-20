@@ -8,7 +8,7 @@ import FinanceDataReader as fdr
 # import yfinance as yf
 # https://hyunyulhenry.github.io/quant_cookbook/금융-데이터-수집하기-기본.html
 import os
-from database import DataBase 
+from .database import DataBase 
 import shutil
 import datetime
 

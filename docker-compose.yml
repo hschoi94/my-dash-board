@@ -6,8 +6,8 @@ services:
     container_name: appseed_app
     restart: always
     env_file:
-      - ./docker/app/env
       - ./docker/env
+      - ./docker/app/env
     build: ./docker/app
     networks:
       - db_network
@@ -34,8 +34,8 @@ services:
     image: mariadb:latest
     container_name: IDASH-mariadb
     env_file:
-      - ./docker/app/env
       - ./docker/env
+      - ./docker/app/env
     networks:
       - db_network
     restart: always
