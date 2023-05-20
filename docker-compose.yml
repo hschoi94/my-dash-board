@@ -31,11 +31,11 @@ services:
     stdin_open: true # interaction option
 
   db:
-    image: mariadb:latest
     container_name: IDASH-mariadb
+    build: ./docker/mariadb
     env_file:
       - ./docker/env
-      - ./docker/app/env
+      - ./docker/mariadb/env
     networks:
       - db_network
     restart: always

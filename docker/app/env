@@ -1,5 +1,3 @@
-USER_UID=$USER
-
 # True for development, False for production
 DEBUG=False
 VER=v1.0

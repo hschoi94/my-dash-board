@@ -1,4 +1,4 @@
-USER_UID=$USER
-USER_GID=20
-MARIADB_ROOT_PASSWORD=$DB_ROOT_PASS
+MARIADB_ROOT_PASSWORD=root
 LANG='C.UTF-8'
+
+# https://hub.docker.com/_/mariadb
