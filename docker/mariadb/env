@@ -1,4 +1,6 @@
 MARIADB_ROOT_PASSWORD=root
+MARIADB_USER=mdash # root로는 sql init이 안되기 때문에 USER
+MARIADB_PASSWORD=mdash
 LANG='C.UTF-8'
 
-# https://hub.docker.com/_/mariadb
+# <https://hub.docker.com/_/mariadb>
