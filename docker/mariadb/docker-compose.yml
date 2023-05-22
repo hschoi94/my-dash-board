@@ -6,19 +6,18 @@ services:
     user: $UID:$GID
     init: true
     command: 
-    #   - --default-authentication-plugin=mysql_native_password
+      - --default-authentication-plugin=mysql_native_password
       - --character-set-server=utf8mb4
       - --collation-server=utf8mb4_unicode_ci
-      # - --range_optimizer_max_mem_size=16777216
+      - --range_optimizer_max_mem_size=16777216
     
     env_file:
       - ./env
 
     restart: always
-    # volumes:
-      # - ~/IDASH/MariaDB/data:/var/lib/mysql
-      # - ~/IDASH/MariaDB/setting:/etc/mysql/conf.d
-      # - ./IDASH/MariaDB/initdb.d:/docker-entrypoint-initdb.d
+
+    volumes:
+      - ./sql:/docker-entrypoint-initdb.d
       
     ports:
       - "33062:3306"

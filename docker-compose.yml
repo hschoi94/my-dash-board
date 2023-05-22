@@ -1,7 +1,6 @@
 version: '3.8'
 services:
   appseed-app:
-    user: $UID:$GID
     container_name: appseed_app
     restart: always
     env_file:
@@ -17,7 +16,6 @@ services:
 
   nginx:
     container_name: nginx
-    user: $UID:$GID
     restart: always
     image: "nginx:latest"
     ports:
@@ -33,23 +31,23 @@ services:
   db:
     container_name: IDASH-mariadb
     build: ./docker/mariadb
-    user: $UID:$GID
     init: true
+    restart: always
     command: 
-    #   - --default-authentication-plugin=mysql_native_password
+      - --default-authentication-plugin=mysql_native_password
       - --character-set-server=utf8mb4
       - --collation-server=utf8mb4_unicode_ci
-      # - --range_optimizer_max_mem_size=16777216
     env_file:
       - ./docker/env
       - ./docker/mariadb/env
+
     networks:
       - db_network
-    restart: always
+
     volumes:
       - ~/IDASH/MariaDB/data:/var/lib/mysql
       - ~/IDASH/MariaDB/setting:/etc/mysql/conf.d
-      # - ./IDASH/MariaDB/initdb.d:/docker-entrypoint-initdb.d
+      - ./docker/mariadb/sql:/docker-entrypoint-initdb.d
       
     ports:
       - "33061:3306"
