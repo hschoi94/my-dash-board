@@ -12,7 +12,7 @@ services:
       - db_network
       - web_network
     volumes:
-      - ./IDASH/Webdav/data:/var/www/html/webdav
+      - ~/IDASH/Webdav/data:/var/www/html/webdav
     stdin_open: true # interaction option
 
   nginx:
@@ -47,8 +47,8 @@ services:
       - db_network
     restart: always
     volumes:
-      - ./IDASH/MariaDB/data:/var/lib/mysql
-      - ./IDASH/MariaDB/setting:/etc/mysql/conf.d
+      - ~/IDASH/MariaDB/data:/var/lib/mysql
+      - ~/IDASH/MariaDB/setting:/etc/mysql/conf.d
       # - ./IDASH/MariaDB/initdb.d:/docker-entrypoint-initdb.d
       
     ports:
