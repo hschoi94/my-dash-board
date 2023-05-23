@@ -1,5 +1,5 @@
-CREATE DATABASE mdash_test;
-use mdash_test;
+CREATE DATABASE mdash;
+use mdash;
 CREATE TABLE USERS(ID INT, NAME VARCHAR(128));
 
 INSERT INTO USERS(ID, NAME) VALUES(1, 'aa1');

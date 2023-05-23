@@ -16,7 +16,9 @@ RUN apt update
 RUN apt-get install -y python3-dev build-essential python3 python3-pip python3-venv
 RUN pip install --upgrade pip
 RUN pip install -r requirements.txt
-
+RUN git clone https://github.com/hschoi94/my-dash-board.git 
+RUN cd /my-dash-board
+RUN git checkout exp
 # RUN mkdir -p /var/www/html/webdav
 
 # # 관리하는 초기 파일들을 migrations라는 디렉터리에 자동으로 생성

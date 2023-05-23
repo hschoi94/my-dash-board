@@ -63,6 +63,7 @@ source <sql file path>
 
 [Database만 여러개 만들 수 있을까?](https://stackoverflow.com/questions/50173296/multiple-mariadb-databases-in-docker)
 Database을 여러개 만들지 않고 Table만 여러개 만들면되지 않을까?
+
 - 내가 생각하기에는 Database가 여러개일 필요가 없어 보인다. [관련된 글](https://okky.kr/questions/844821)에서 약간의 설명을 해준다.
 
 - 그렇다면 Table만 생성하는 것은 가능한가?
@@ -73,3 +74,9 @@ MARIADB_DATABAS 옵션을 이용하여 Database가 생성되는 것을 확인.
 sql파일을 이용하여 데이터 베이스 및 테이블이 생성되는 것을 확인함.
 > Volume의 문제
 
+### 생성된 Database의 권한(GRANT)
+
+데이터베이스(Database:DB) 생성 방법에 따라서 권한이 다르다.
+
+- 초기 MARIADB_DATABASE로 생성된 DB는 MARIADB_USERNAME도 권한을 가짐
+- sql로 생성했다면 root만 권한을 가지고 있어서 sql파일에 권한을 부여하는 query도 추가해야 한다.

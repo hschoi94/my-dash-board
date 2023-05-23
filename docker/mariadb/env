@@ -1,8 +1,9 @@
+# sql
+
+## <https://hub.docker.com/_/mariadb>
+
 MARIADB_ROOT_PASSWORD=root
-MARIADB_USER=mdash2 # root로는 sql init이 안되기 때문에 USER
+MARIADB_USER=mdash
 MARIADB_PASSWORD=mdash
-MARIADB_DATABASE=mdash3
 MARIADB_HOST=%
 LANG='C.UTF-8'
-
-# <https://hub.docker.com/_/mariadb>
