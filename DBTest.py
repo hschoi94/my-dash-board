@@ -20,8 +20,8 @@ def comp_list_w_list(list_,c_lists_,dict_id):
 
 if __name__ == "__main__":
     host = 'db'
-    user = 'root'
-    pw = 'root'#os.environ.get('DB_PASS')
+    user = 'mdash'
+    pw = 'mdash'#os.environ.get('DB_PASS')
     db = os.environ.get('DB_NAME')
     sql = DataBaseInit(host,user,pw,port=3306)
     # user_c = os.environ.get('DB_USER')

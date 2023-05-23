@@ -2,6 +2,8 @@ pyOpenSSL
 plotly
 pandas
 pymysql
+mysqlclient
+
 finance-datareader
 beautifulsoup4
 flask==2.0.2

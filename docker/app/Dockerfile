@@ -13,7 +13,9 @@ COPY requirements.txt .
 
 # install python dependencies
 RUN apt update
+RUN apt-get update
 RUN apt-get install -y python3-dev build-essential python3 python3-pip python3-venv
+RUN apt install python3-dev default-libmysqlclient-dev build-essential
 RUN pip install --upgrade pip
 RUN pip install -r requirements.txt
 RUN git clone https://github.com/hschoi94/my-dash-board.git 
